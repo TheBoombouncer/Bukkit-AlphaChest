@@ -23,7 +23,7 @@ public class ChestCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (command.getName().equalsIgnoreCase("chest")) {
+        if (command.getName().equalsIgnoreCase("sandık")) {
             // Make sure the sender is a player
             if (!(sender instanceof Player)) {
                 Teller.tell(sender, Type.ERROR, "Sadece oyuncular sandığa erişebilir.");
