@@ -26,7 +26,7 @@ public class ChestCommand implements CommandExecutor {
         if (command.getName().equalsIgnoreCase("chest")) {
             // Make sure the sender is a player
             if (!(sender instanceof Player)) {
-                Teller.tell(sender, Type.ERROR, "Only players are able to open chests.");
+                Teller.tell(sender, Type.ERROR, "Sadece oyuncular sandığa erişebilir.");
                 return true;
             }
 
@@ -34,7 +34,7 @@ public class ChestCommand implements CommandExecutor {
 
             // Prevent opening of the chest in Creative Mode
             if (player.getGameMode().equals(GameMode.CREATIVE) && !player.hasPermission("alphachest.chest.creativeMode")) {
-                Teller.tell(sender, Type.ERROR, "You are not allowed to open your chest in Creative Mode!");
+                Teller.tell(sender, Type.ERROR, "Yaratıcı modda sandığa erişemezsin.");
                 return true;
             }
 
@@ -45,7 +45,7 @@ public class ChestCommand implements CommandExecutor {
                         Inventory chest = chestManager.getChest(player.getUniqueId());
                         player.openInventory(chest);
                     } else {
-                        Teller.tell(sender, Type.ERROR, "You are not allowed to use this command.");
+                        Teller.tell(sender, Type.ERROR, "Bu komutu kullanamazsın.");
                     }
 
                     return true;
@@ -61,7 +61,7 @@ public class ChestCommand implements CommandExecutor {
                             Teller.tell(player, Type.ERROR, String.format("Chest for %s not found", args[0]));
                         }
                     } else {
-                        Teller.tell(player, Type.ERROR, "You are not allowed to open other user's chests.");
+                        Teller.tell(player, Type.ERROR, "Diğer oyuncuların sandığına erişemezsin.");
                     }
 
                     return true;
